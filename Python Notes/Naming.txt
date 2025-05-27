@@ -1,0 +1,16 @@
+Classes = CamelCase
+
+Constants = All Uppercase 
+
+Exception Names = suffix the name with "Error"
+    • Ex. class MyCustomExceptionError
+
+Functions = snake_case (Lowercase with underscores)
+
+Packages = short and concise, avoid underscores or hyphens
+    • It is acceptable to use underscores for sub-modules within a package
+
+Type Variable Names = CamelCase
+    • Ex. def calculateTotal(items: Dict[int, str]):   # Clear and descriptive type variable name
+
+Variables = Lower Case (Lowercase with underscores)

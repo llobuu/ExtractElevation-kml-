@@ -1,0 +1,8 @@
+1. Open Powershell as Admin
+2. Type:
+    Just yours:     Set-ExecutionPolicy RemoteSigned
+
+    • Restricted:   No Script either local, remote or downloaded can be executed on the system.
+    • AllSigned:    All script that are ran require to be digitally signed.
+    • RemoteSigned: All remote scripts (UNC) or downloaded need to be signed.
+    • Unrestricted: No signature for any type of script is required.

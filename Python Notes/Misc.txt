@@ -1,0 +1,13 @@
+___________________________________________________________________________________________________
+----- Black.py -----
+1. Install: pip install git+https://github.com/psf/black
+
+2. Run:     python -m black [file_name.py]
+
+!!! To format all in project:
+    python -m black .
+
+    . does everything in the project :)
+
+___________________________________________________________________________________________________
+----- Template -----

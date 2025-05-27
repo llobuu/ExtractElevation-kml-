@@ -1,0 +1,19 @@
+____________________________________________________________________________________________________
+----- INSTALL VSCODE -----
+1. In Extensions, install Python Debugger extension
+
+
+
+____________________________________________________________________________________________________
+----- RUN -----
+1. Set breakpoint (Red Circle):
+    1a. Press 'F9':   This will set a breakpoint on the line the cursor is on
+    1b. Select manually
+2. Press 'F5' to initiallize the Debugger
+3. To use the debugger:
+    Continue:   F5
+    Step Over:  F10
+    Step Into:  F11
+    Step Out:   Shift + F11
+    Restart:    Ctrl + Shift + F5
+    Stop:       Shift + F5

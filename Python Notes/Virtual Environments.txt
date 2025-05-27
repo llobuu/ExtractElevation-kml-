@@ -1,0 +1,45 @@
+____________________________________________________________________________________________________
+----- CREATE VIRTUAL ENVIRONMENT (GUI) -----
+1. Press:   Ctrl + Shift + P
+2. Type:    'Python: Create Environment'
+3. Select 'Interpreter'
+
+
+
+____________________________________________________________________________________________________
+----- CREATE VIRTUAL ENVIRONMENT (Command Line) -----
+1. Press:   Ctrl + Shift + ~
+2. Type:    'python -m venv [name]'
+   Note:    • '.venv' is the name of the Environment folder
+               Ex:      set path to llobuu (cd ..)
+                        python -m venv ./Environments/DeepLearning
+            • Make sure to update your source control settings to prevent accidentally committing your venv.
+            • Since Virtual Environements are not portable, it tyupically does not make sense to commit them.
+
+**NOTE**
+To install all global packages in venv as well:
+   'python -m venv [name]' --system-site-packages
+
+____________________________________________________________________________________________________
+----- ACTIVATE -----
+1. Press:   Ctrl + Shift + P
+2. Type:    Python: Select 'Interpreter'
+   Note:    • If you want to turn off the issued warnings, set python.disableInstallationCheck to true
+
+You can also see it in the bottom right of VSCode, and select. You may need to restart the environment.
+
+
+
+____________________________________________________________________________________________________
+----- Install from requirements.txt -----
+1. Type: pip3 install -r requirements.txt
+
+
+
+____________________________________________________________________________________________________
+----- Save venv to requirements.txt -----
+1. Type: pip3 freeze > requirements.txt
+
+
+PyTorch
+https://fastbots.ai/blog/where-to-install-pytorch-installation-guide

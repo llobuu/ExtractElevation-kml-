@@ -1,0 +1,11 @@
+In Windows, search: Environment Variables
+• It's in system properties
+--> Advanced
+--> Environment Variables
+• In the new window, at the bottom, find 'Path', select it, and click 'Edit'
+Here you will add Python to the Windows path
+
+
+Open cmd, type: python
+• It will tell you which version you have installed
+• WHen you see the 3 arrows below, it means whatever you write next will be in python (ex. print("hello"))

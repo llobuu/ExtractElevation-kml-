@@ -1,0 +1,76 @@
+___________________________________________________________________________________________________
+----- 1. INITIALIZE REPOSITORY (Local Folder) -----
+1. Click: Source Control --> 'Initialize Repository'
+    Note:   • This is the same as 'git init'
+              This creates a new Git repository in the current folder, allowing you to start tracking code changes
+
+
+
+____________________________________________________________________________________________________
+----- 2. PUBLISH REPOSITORY -----
+1. Type:    'name' and look for Publish to git private/public.
+    OR
+2. Click: Source Control --> Publish to GitHub
+    Note:   • This creates a new repository on your GitHub account, and pushes your local code changes to the remote repository.
+              You can then choose a name and description for the repository, and whether to make it public or private.
+
+
+    NOTE: If you get the error that says you need to config your git user.name and user.email, type:
+        git config --global user.name "llobuu"
+        git config --global user.email "rtrogers89@gmail.com"
+
+
+____________________________________________________________________________________________________
+----- 3. STAGE REPOSITORY -----
+1. Type:  Enter commit message in the upper text box.
+    Note:   • With GitHub Copilot, in VSCode, you can generate a commit message based on your code changes.
+2. Click: Source Control --> '+' (ie. plus) icon.
+    Note:   • This adds the file to the Staged changes section, indicating that it will be included in the next commit.
+            • You can also stage all pending changes at once by selecting the + (plus) icon next to 'Changes' in Source 
+                Control view.
+            • Staged changes can also be discarded by selecting the '-' (ie. minus) icon next to the file.
+
+        NOTE: If you get the error that says you need to config your git user.name and user.email, type:
+            git config --global user.name "llobuu"
+            git config --global user.email "rtrogers89@gmail.com"
+
+
+
+____________________________________________________________________________________________________
+----- 4. COMMIT REPOSITORY -----
+1. Click: Source Control --> 'Commit'
+    Note:   • Commit your changes early and often.
+            • You can access the Source Control View from the Activity Bar to list all changed files in your workspace.
+            • You can toggle between a tree view or list view using the tree/list icon in the Source Control view header.
+            • When you select a file in the Source Control view, the editor shows a diff view that highlights the file 
+                changes, compared to the previously commited file.
+
+
+
+____________________________________________________________________________________________________
+----- 5. PUSH REPOSITORY -----
+1. Click: Source Control --> 'Sync Changes'
+    Note:   • The 'Sync Changes' button indicates how many commits are going to be pushed anbd pulled.
+            • Selecting the 'Sync Changes' button downloads (ie. pulls) any new remote commits and uploads (ie. pushes)
+                new local commits to the remote repository.
+            • Push and pull can also be performed individually by using their respective commands.
+
+
+
+____________________________________________________________________________________________________
+----- 6. OPEN GIT REPOSITORY -----
+1. Insall:  'GitHub Repositories' extension
+2. Run: 'Remote Repositories: Open Remote Repository'
+3. Select: Repository you're after
+
+
+
+____________________________________________________________________________________________________
+----- 7. BRANCHES -----
+1. Select:  Branch indicator (ie. 'Create new branch..')
+2. Enter a name for the branch and confirm
+    Note:   • VS Code will automatically switch you to it, allowing you to make changes to your code without affecting the main branch.
+            • After you create a local branch, you can push the branch to the remote repository by selecting 'Publish Branch'
+            • This creates a new branch on the remote repository
+
+
