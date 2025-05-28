@@ -65,6 +65,7 @@ if __name__ == "__main__":
     if not os.path.exists(kml_path) or not kml_path.endswith('.kml'):
         print("Invalid file path or file type.")
     else:
+
         latitude, longitude, elevations = extract_elevation_from_kml(kml_path)
 
         if not latitude:

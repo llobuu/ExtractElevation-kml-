@@ -1,0 +1,10 @@
+https://pypi.org/project/black/
+
+1. Install:
+    pip install git+https://github.com/psf/black
+
+2. Run as script:
+    black {source_file_or_directory}
+
+3. Run as a package:
+    python -m black {source_file_or_directory}
