@@ -1,50 +1,44 @@
-import os
-import csv
-import xml.etree.ElementTree as ET
+from geopy.distance import geodesic
+from shapely.geometry import LineString
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
+import os
 
-def extract_elevation_from_kml(kml_path):
-    tree = ET.parse(kml_path)
-    root = tree.getroot()
 
-    # Handle XML namespace for KML
-    ns = {'kml': 'http://www.opengis.net/kml/2.2'}
+def extract_elevation_from_txt(txt_path):
+    # Load the tab-delimited file
+    #output_path = txt_path.replace('.txt', '.csv')
+    dist_list = [0]
 
-    # Find all coordinate tags
-    coordinates = root.findall('.//kml:coordinates', ns)
-    latitude = []
-    longitude = []
-    elevations = []
+    # Read using tab separator
+    df = pd.read_csv(txt_path, sep='\t')
+    coords=[]
+    lat_list = df['latitude']
+    long_list = df['longitude']
+    elevation_list = df['altitude (m)']
+    for i in range(len(df['latitude'])):
+        coords.append((df['latitude'][i].item(),df['longitude'][i].item()))
+   
+    # Reverse to (lat, lon)
+    latlon_coords = [(lat, lon) for lat, lon in coords]
+    # Calculate distance in meters
+    total_distance_m = 0.0
+    for i in range(1, len(latlon_coords)):
+        segment_distance = geodesic(latlon_coords[i - 1], latlon_coords[i]).meters
+        total_distance_m += segment_distance
+        dist_list.append(total_distance_m)
 
-    for coord in coordinates:
-        lines = coord.text.strip().split()
-        for line in lines:
-            parts = line.split(',')
-            if len(parts) == 3:
-                try:
-                    lat = float(parts[0])
-                    latitude.append(lat)
+    return lat_list, long_list, elevation_list, dist_list
 
-                    long = float(parts[1])
-                    longitude.append(long)
 
-                    elevation = float(parts[2])
-                    elevations.append(elevation)
-                except ValueError:
-                    continue
-    return latitude, longitude, elevations
+def save_to_csv(latitude, longitude, elevations, distance, output_path):
+    dataset = {"latitude": latitude, "longitude": longitude, "distance": distance,"elevations": elevations}
 
-def save_to_csv(latitude, longitude, elevations, output_path):
-    dataset = {'latitude':latitude,
-               'longitude':longitude,
-               'elevations': elevations}
-
-    df_data = pd.DataFrame.from_dict(dataset, orient='columns')
+    df_data = pd.DataFrame.from_dict(dataset, orient="columns")
     print(df_data)
 
-    writer = pd.ExcelWriter(output_path, engine = 'xlsxwriter')
+    writer = pd.ExcelWriter(output_path, engine="xlsxwriter")
     df_data.to_excel(writer)
     writer.close()
 
@@ -57,23 +51,14 @@ if __name__ == "__main__":
 
     file = filedialog.askopenfile(initialdir=desktop_path, title="Select a file")
     if file:
-        kml_path = file.name
+        txt_path = file.name
+   
+    folder = os.path.dirname(txt_path)
+    latitude, longitude, elevations, distance = extract_elevation_from_txt(txt_path)
 
-    folder = os.path.dirname(kml_path)
-    output_file = os.path.join(folder, "kml elevations.xlsx")
 
-    if not os.path.exists(kml_path) or not kml_path.endswith('.kml'):
-        print("Invalid file path or file type.")
-    else:
+    output_file = os.path.join(folder, "elevations.xlsx")
 
-        latitude, longitude, elevations = extract_elevation_from_kml(kml_path)
 
-        if not latitude:
-            print("No latitude data found in the KML file.")
-        if not longitude:
-            print("No longitude data found in the KML file.")
-        if not elevations:
-            print("No elevation data found in the KML file.")
-        else:
-            save_to_csv(latitude, longitude, elevations, output_file)
-            print(f"Elevation data saved to: {output_file}")
+    save_to_csv(latitude, longitude, elevations, distance, output_file)
+    #print(f"Elevation data saved to: {output_file}")
