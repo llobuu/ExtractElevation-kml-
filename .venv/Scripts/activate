@@ -40,6 +40,7 @@ export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/Scripts:$PATH"
+
 export PATH
 
 # unset PYTHONHOME if set

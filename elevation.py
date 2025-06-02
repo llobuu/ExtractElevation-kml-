@@ -1,8 +1,16 @@
-from geopy.distance import geodesic
-from shapely.geometry import LineString
+'''
+1. Download your kml file from google earth - make sure it has a lot of nodes.
+2. Upload your kml file to:     https://www.gpsvisualizer.com/elevation
+    * Make sure to export DEM database as txt file
+3. Run this script. Select the txt file.
+    * It will export the elevation and distances as: elevations.xlsx
+'''
+# pip install geopy shapely pandas xlsxwriter
+from geopy.distance import geodesic             # pip install geopy
+from shapely.geometry import LineString         # pip install shapely
+import pandas as pd                             # pip install pandas
 import tkinter as tk
 from tkinter import filedialog
-import pandas as pd
 import os
 
 
